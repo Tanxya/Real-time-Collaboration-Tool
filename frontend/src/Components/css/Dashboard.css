@@ -1,0 +1,151 @@
+.dashboard {
+    padding: 20px 0;
+    padding-top: 0;
+    flex: 1;
+    margin: 0 auto;
+    width: 1000px;
+  }
+
+  .create-doc-btn {
+    display: block;
+    margin: 44px 0;
+    padding: 50px 30px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    background-color: #33333320;
+    color: #333;
+    border: 3px dashed #333;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .create-doc-btn:hover {
+    background-color: #333;
+    color: white;
+  }
+  
+  .doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    gap: 20px;
+  }
+  
+  .doc-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 237.6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .doc-card:hover {
+    border: 1px solid #333;
+  }
+
+  .doc-card-content {
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  height: 100%;
+  }
+  
+  .shared-label{
+    color: #fff;
+    background-color: #666;
+    padding: 2px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    position: absolute;
+    top: -9px;
+    left: -9px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1;
+  }
+  .doc-content-preview {
+    font-size: 10px;
+    color: #666;
+    margin-bottom: 10px;
+    padding: 0 12px;
+    overflow: hidden;
+  }
+  .doc-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .doc-card-footer h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+  .doc-date {
+    font-size: 12px;
+    color: #888;
+  }
+  .menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+  }
+  
+  .menu-btn:hover {
+    color: #333;
+  }
+
+  .menu-options {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .menu-options button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+  }
+
+
+  @media (max-width: 1300px) {
+    .dashboard {
+      width: 830px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .dashboard {
+      width: 660px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .dashboard {
+      width: 490px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .dashboard {
+      width: 320px;
+    }
+  }

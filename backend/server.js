@@ -1,34 +1,44 @@
-// importing packages
-const express = require('express');
-const http = require('http');
-const dotenv = require('dotenv');
-const cors = require('cors');
-//importing db config
-const connectDB = require('./config/db');
-//importing routes
-const authRoutes = require('./routes/auth');
-const documentRoutes = require('./routes/documents');
+import express from 'express';
+import http from 'http';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import authRouter from './Routes/AuthRouter.js';
+import documentRouter from './Routes/DocumentRouter.js';
+import socketAuthMiddleware from './Middlewares/socketAuthMiddleware.js';
+import dotenv from 'dotenv';
+import './Models/db.js';
+import { Server } from 'socket.io';
+import socketRouter from './Routes/SocketRouter.js';
 
 dotenv.config();
-connectDB();
 
 const app = express();
 const server = http.createServer(app);
-
-// Configure CORS for HTTP requests
-//CORS - cross origin resource sharing
 app.use(cors({
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
+    origin: process.env.CLIENT_URL,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
 
-// Middleware and routes
-app.use(express.json());
-app.use('/api/auth', authRoutes);
-app.use('/api/documents', documentRoutes);
+const io = new Server(server, {
+    cors: {
+        origin: process.env.CLIENT_URL,
+        methods: ['GET', 'POST', 'PUT'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        credentials: true
+    }
+});
 
-const PORT = process.env.PORT || 5000;
+app.use(bodyParser.json());
+app.use('/api/auth', authRouter);
+app.use('/api/documents', documentRouter);
+
+io.use(socketAuthMiddleware);
+socketRouter(io);
+
+const PORT = process.env.PORT || 3000;
+
 server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server is running on PORT ${PORT}`);
 });

@@ -1,24 +1,20 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Navbar from './Components/Navbar';
-import LandingPage from './Components/LandingPage';
-import Login from './Components/Login';
-import Register from './Components/Register';
+import { useState } from 'react'
+import './App.css'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import { Outlet } from 'react-router-dom'
 
-const App = () => {
-    return (
-        <Router>
-            <Header />
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-            </Routes>
-            <Footer />
-        </Router>
-    );
-};
 
-export default App;
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <Navbar/>
+      <Outlet/>
+      <Footer/>
+    </>
+  )
+}
+
+export default App

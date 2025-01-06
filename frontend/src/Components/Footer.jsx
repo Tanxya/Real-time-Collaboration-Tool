@@ -1,9 +1,15 @@
-const Footer = () => {
-    return (
-        <footer className="bg-dark text-white text-center py-3">
-            <p>&copy; {new Date().getFullYear()} Real-Time Collaboration Tool</p>
-        </footer>
-    );
-};
+import React from 'react'
+import './css/Footer.css'
 
-export default Footer;
+function Footer() {
+  return (
+    <div>
+        <div id='footer'>
+            <p>Collab Docs</p>
+            <p>© 2024 Collab Docs</p>
+        </div>
+    </div>
+  )
+}
+
+export default Footer
