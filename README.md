@@ -60,14 +60,14 @@ The **Real-time Collaboration Tool** is a web-based application designed to enab
 ## Project Structure
 
 Real-time-Collaboration-Tool/
-│── backend/ # Node.js & Express backend │ 
-├── models/ # Database models │ 
-├── routes/ # API routes │ 
-├── controllers/ # Request handlers │
-├── server.js # Main backend server
-│── frontend/ # React.js frontend │ 
-├── src/ # React components & pages │ 
-├── App.js # Main frontend entry point 
+│── backend/ # Node.js & Express backend 
+│ ├── models/ # Database models 
+│ ├── routes/ # API routes 
+│ ├── controllers/ # Request handlers 
+│ ├── server.js # Main backend server
+│── frontend/ # React.js frontend 
+│ ├── src/ # React components & pages 
+│ ├── App.js # Main frontend entry point 
 │── public/ # Static assets 
 │── package.json # Project dependencies
 │── README.md # Documentation
